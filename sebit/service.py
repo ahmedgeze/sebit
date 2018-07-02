@@ -15,6 +15,6 @@ def post(name,city,country):
 
 
 def get(link):
-    r=requests.get(link)
-    d=json.loads(r.text)
-    return d
+    r=requests.get("https://api.myjson.com/bins/xa6vm")
+    x=r.text
+    d=json.loads(x)

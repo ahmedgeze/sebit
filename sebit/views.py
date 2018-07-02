@@ -14,7 +14,8 @@ from django.http import JsonResponse
 def home(request):
     r=requests.get("https://api.myjson.com/bins/xa6vm")
     print(r.text)
-    return render(request,'index.html')
+    data=service.get("sadsdadsa")
+    return render(request,'index.html',{'items':data})
 
 
 def post(request,name,city,country):
@@ -31,12 +32,12 @@ def post(request,name,city,country):
 
 
 
-def put(request,person_name,city_name,country):
+def put(request):
     data=service.get("https://api.myjson.com/bins/xa6vm")
 
     add_data = 	{
-        "person_name": person_name,
-        "city_name": city_name,
+        "person_name": "person_name",
+        "city_name": "city_name",
         "country_name": country
     	}
 

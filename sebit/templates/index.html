@@ -9,47 +9,27 @@
 
 
   <body>
-    <form method="GET" id="test">
-    <label for="name">Name</label>
-     {% csrf_token %}
-    <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter email">
-     {% csrf_token %}
-     <input type="text" class="form-control" id="city" placeholder="Password">
 
+    <table class="table">
+<thead>
+  <tr>
 
-     {% csrf_token %}
-    <input type="text" class="form-control" id="country" placeholder="Password">
-  <button type="submit" class="btn btn-primary">Submit</button>
-  <div id = 'message'>Initial text</div>
-  </form>
+    <th scope="col">Namae</th>
+    <th scope="col">City</th>
+    <th scope="col">Country</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    {% for k in data %}
 
-
-    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-
-    <script type="text/javascript">
-    var frm = $('#test');
-    var str = $("test").serializeArray();
-    var name=document.getElementById('name').value
-    var city=document.getElementById('city').value
-    var country=document.getElementById('country').value
-
-    frm.submit(function () {
-        $.ajax({
-            type: frm.attr('get'),
-            url: frm.attr('http://127.0.0.1:8000/post/'+name+'/'+city+'/'+country),
-            data: str,
-            success: function (data) {
-                 alert(data);
-            },
-            error: function(data) {
-                $("#message").html("Something went wrong!");
-            }
-        });
-        return false;
-    });
-</script>
-
-
+      <td>{{ k }}</td>
+      <td>{{ k }}</td>
+      <td>{{ k }}</td>
+      {% endfor %}
+  </tr>
+</tbody>
+</table>
 
 
 
